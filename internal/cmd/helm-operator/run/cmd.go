@@ -204,6 +204,7 @@ func run(cmd *cobra.Command, f *flags.Flags) {
 			SuppressOverrideValues:  f.SuppressOverrideValues,
 			MaxConcurrentReconciles: f.MaxConcurrentReconciles,
 			Selector:                w.Selector,
+			DryRunOption:            w.DryRunOption,
 		})
 		if err != nil {
 			log.Error(err, "Failed to add manager factory to controller.")
