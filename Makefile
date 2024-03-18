@@ -4,7 +4,7 @@ SHELL = /bin/bash
 # This value must be updated to the release tag of the most recent release, a change that must
 # occur in the release commit. IMAGE_VERSION will be removed once each subproject that uses this
 # version is moved to a separate repo and release process.
-export IMAGE_VERSION = v1.34.0
+export IMAGE_VERSION = v1.34.2
 # Build-time variables to inject into binaries
 export SIMPLE_VERSION = $(shell (test "$(shell git describe --tags)" = "$(shell git describe --tags --abbrev=0)" && echo $(shell git describe --tags)) || echo $(shell git describe --tags --abbrev=0)+git)
 export GIT_VERSION = $(shell git describe --dirty --tags --always)
@@ -102,7 +102,7 @@ image-build: $(foreach i,$(IMAGE_TARGET_LIST),image/$(i)) ## Build all images.
 
 
 # Build an image.
-BUILD_IMAGE_REPO = quay.io/operator-framework
+BUILD_IMAGE_REPO = quay.io/jordigilh
 # When running in a terminal, this will be false. If true (ex. CI), print plain progress.
 ifneq ($(shell test -t 0; echo $$?),0)
 DOCKER_PROGRESS = --progress plain

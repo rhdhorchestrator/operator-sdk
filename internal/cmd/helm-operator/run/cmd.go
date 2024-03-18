@@ -154,6 +154,7 @@ func run(cmd *cobra.Command, f *flags.Flags) {
 	ws, err := watches.Load(f.WatchesFile)
 	if err != nil {
 		log.Error(err, "Failed to load watches file.")
+
 		os.Exit(1)
 	}
 
